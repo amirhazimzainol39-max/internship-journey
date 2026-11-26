@@ -49,6 +49,10 @@ nav ul a:hover{color:var(--green)}
 .btn:hover{filter:brightness(1.06)}
 .btn:focus-visible,.card:focus-visible,.cell:focus-visible,nav a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .hero .btn:focus-visible{outline-color:#fff}
+.photo{position:absolute;z-index:1;top:0;right:0;bottom:clamp(140px,16vw,220px);width:54%;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 30%);mask-image:linear-gradient(to right,transparent 0%,#000 30%);pointer-events:none}
+.photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:45% 30%;opacity:.6;-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 55%,transparent 100%)}
+.htext .wrap{grid-template-columns:minmax(0,1fr) minmax(0,.8fr)}
+.htext .wrap>div{grid-column:1}
 .field{position:relative;height:clamp(260px,30vw,360px);margin-top:12px}
 .field canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-42%);width:150px;height:150px;border-radius:50%;background:#0d2f6340;backdrop-filter:blur(3px);display:grid;place-items:center;text-align:center}
@@ -122,7 +126,7 @@ summary{cursor:pointer;padding:12px 0;font-weight:700;min-height:44px;color:var(
 .rd-nav{display:flex;justify-content:space-between;gap:12px;margin-top:32px;flex-wrap:wrap}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.strip{grid-template-columns:repeat(9,minmax(0,1fr))}.strip .cell{height:48px}}
-@media(max-width:760px){.htext .wrap{grid-template-columns:minmax(0,1fr)}.feat{grid-template-columns:minmax(0,1fr)}.feat .art{min-height:200px}}
+@media(max-width:760px){.htext .wrap{grid-template-columns:minmax(0,1fr)}.photo{position:relative;width:auto;height:360px;margin:20px 0 -110px;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 25%);mask-image:linear-gradient(to bottom,transparent 0%,#000 25%)}.photo img{opacity:.7;object-position:40% 45%}.feat{grid-template-columns:minmax(0,1fr)}.feat .art{min-height:200px}}
 @media(max-width:600px){.grid,.skills,.how{grid-template-columns:minmax(0,1fr)}nav ul{font-size:14px;gap:2px 14px}.ring{width:124px;height:124px}.ring b{font-size:36px}}
 </style>
 </head>
@@ -150,6 +154,7 @@ summary{cursor:pointer;padding:12px 0;font-weight:700;min-height:44px;color:var(
       </div>
     </div>
   </div>
+  <div class="photo"><img src="assets/amir.jpg" alt="Amir Hazim bin Zainol in the Hartalega lobby" width="1300" height="1213"></div>
   <div class="field">
     <canvas id="dots" aria-hidden="true"></canvas>
     <div class="ring" role="img" id="ringBox" aria-label="Week 10 of 27">
