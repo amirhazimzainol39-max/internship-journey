@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Internship Journey at Hartalega</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday personal blog in the host company's colours, calm and corporate-friendly
+   IDEA Hartalega's own site: green-to-navy gradient sky over a breathing field of dots, with a progress ring like its loader
+   PICTURE full-width animated dot field across the lower hero, a green ring in the middle counting weeks
+   COLOUR Hartalega green #13A84A, Hartalega blue #2865AF, mint #C6E1C9, charcoal #2E2E2E on white
+   TYPE Open Sans 700/800 + Open Sans
+   LAYOUT gradient hero (title with a large Hartalega, byline, intro) over the dot field; white stats row; strip, chapters, skills, footer */
+:root{color-scheme:light;--bg:#fff;--bg2:#f2f7f3;--card:#fff;--line:#dde6e0;--ink:#2e2e2e;--mute:#5b6862;--green:#13a84a;--blue:#2865af;--mint:#c6e1c9;--navy:#0d2f63}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Open Sans",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Open Sans",system-ui,sans-serif;font-weight:700;line-height:1.08;letter-spacing:-.02em;text-wrap:balance;margin:0}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
+nav{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;padding:12px max(5vw,16px);background:#fff;border-bottom:1px solid var(--line)}
+.logo{font:700 17px "Open Sans",sans-serif;text-decoration:none;display:flex;gap:9px;align-items:center;color:var(--ink)}
+.logo i{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--blue))}
+.logo b{color:var(--green)}
+nav ul{display:flex;flex-wrap:wrap;gap:4px 18px;list-style:none;margin:0;padding:0;font-size:15px}
+nav ul a{text-decoration:none;color:var(--ink);padding:10px 0;display:inline-block;font-weight:600}
+nav ul a:hover{color:var(--green)}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:99px;padding:5px 14px;font-size:14px;font-weight:600;background:#e6f4e9;color:#0c7a35}
+.hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(55% 60% at 22% 30%,#2fd07a 0%,transparent 70%),linear-gradient(155deg,#13a84a 0%,#18a37a 32%,#2aa0b8 55%,#2865af 78%,#0d2f63 100%)}
+.hero .pill{background:#ffffff26;color:#fff;border:1px solid #ffffff55}
+.htext{position:relative;z-index:2;padding:clamp(36px,5vw,72px) max(5vw,16px) 0}
+.htext .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px 48px;align-items:end}
+.hero h1{margin-top:18px;font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-.01em}
+.hero h1 strong{display:block;font-size:clamp(56px,10vw,120px);font-weight:800;letter-spacing:-.035em;line-height:1;margin-top:4px;text-shadow:0 6px 30px #0d2f6333}
+.by{display:flex;align-items:center;gap:12px;margin-top:20px}
+.by .av{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--green);font-weight:800;font-size:16px}
+.by strong{display:block;font-weight:700}
+.by span:not(.av){display:block;color:#e4f3ea;font-size:14px}
+.hero p{margin:0 0 18px;color:#eef7f1;max-width:52ch;font-size:17px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 22px;border-radius:99px;border:1.5px solid var(--green);background:var(--green);color:#fff;font:700 15px "Open Sans",sans-serif;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--blue);border-color:var(--blue)}
+.hero .btn{background:#fff;color:var(--green);border-color:#fff}
+.hero .btn.ghost{background:transparent;color:#fff;border-color:#ffffffaa}
+.btn:hover{filter:brightness(1.06)}
+.btn:focus-visible,.card:focus-visible,.cell:focus-visible,nav a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.hero .btn:focus-visible{outline-color:#fff}
+.field{position:relative;height:clamp(260px,30vw,360px);margin-top:12px}
+.field canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-42%);width:150px;height:150px;border-radius:50%;background:#0d2f6340;backdrop-filter:blur(3px);display:grid;place-items:center;text-align:center}
+.ring svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.ring b{display:block;font-size:44px;font-weight:700;line-height:1}
+.ring small{display:block;font-size:13px;color:#e4f3ea;margin-top:4px}
+.statsband{padding-top:28px;padding-bottom:12px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.stat{border:1px solid var(--line);border-radius:16px;padding:16px 20px;background:#fff;box-shadow:0 2px 0 #13a84a14}
+.stat span{display:block;color:var(--mute);font-size:14px}
+.stat strong{display:block;font-size:clamp(28px,3vw,38px);font-weight:700;line-height:1.15;color:var(--blue);white-space:nowrap}
+.stat em{font-style:normal;color:var(--green);font-size:.55em}
+.note{font-size:13px;color:var(--mute);margin-top:10px}
+.sec-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px 32px;margin-bottom:24px}
+.sec-h h2{font-size:clamp(28px,3.4vw,40px);color:var(--ink)}
+.sec-h p{color:var(--mute);max-width:52ch;margin:0}
+.strip{display:grid;grid-template-columns:repeat(27,minmax(0,1fr));gap:5px}
+.cell{position:relative;height:64px;border-radius:8px;border:1px solid var(--line);background:#fff;display:grid;place-items:end center;padding-bottom:6px;font-size:13px;color:var(--mute);text-decoration:none}
+.cell.done{background:var(--blue);border-color:var(--blue);color:#fff;cursor:pointer}
+.cell.done:hover{filter:brightness(1.12)}
+.cell.now{background:var(--green);border-color:var(--green);color:#fff;font-weight:700;box-shadow:0 0 0 3px #13a84a33}
+.cell.mile::before{content:"";position:absolute;top:8px;width:9px;height:9px;border-radius:50%;background:var(--green)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;font-size:14px;color:var(--mute)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+.feat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;margin-bottom:28px}
+.feat .art{position:relative;min-height:260px;background:linear-gradient(155deg,#13a84a,#2aa0b8 55%,#2865af)}
+.feat .art svg{position:absolute;inset:0;width:100%;height:100%}
+.feat .txt{padding:clamp(20px,3vw,36px)}
+.feat h3{font-size:clamp(26px,3vw,36px);margin:10px 0 12px}
+.feat p{color:var(--mute);margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{display:flex;flex-direction:column;gap:10px;text-align:left;border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff;color:var(--ink);text-decoration:none;transition:border-color .2s,transform .2s,box-shadow .2s}
+.card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 8px 20px #0d2f6314}
+.card .wk{display:flex;justify-content:space-between;gap:10px;color:var(--mute);font-size:14px}
+.card .wk b{color:var(--green);font-weight:700}
+.card h3{font-size:22px}
+.card p{margin:0;color:var(--mute);font-size:15px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.tags span{font-size:13px;border-radius:99px;padding:2px 10px;background:#eaf1f9;color:var(--blue);font-weight:600}
+.card.soon{border-style:dashed;background:transparent}
+.card.soon:hover{transform:none;border-color:var(--line);box-shadow:none}
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.skill{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff}
+.skill svg{width:44px;height:44px;margin-bottom:12px}
+.skill h3{font-size:20px;margin-bottom:8px}
+.skill p{margin:0;color:var(--mute);font-size:15px}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.how div{border-top:3px solid var(--green);padding-top:16px}
+.how div:nth-child(2){border-color:#2aa0b8}
+.how div:nth-child(3){border-color:var(--blue)}
+.how h3{font-size:20px;margin-bottom:6px}
+.how p{margin:0;color:var(--mute);font-size:15px}
+footer{background:#2e2e2e;color:#e8e8e8;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+#reader{position:fixed;inset:0;z-index:50;background:#fffffffa;overflow-y:auto;display:none}
+#reader.on{display:block}
+.rd{max-width:760px;margin:0 auto;padding:24px max(5vw,16px) 64px}
+.rd-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center;margin-bottom:28px}
+.rd h2{font-size:clamp(32px,5vw,48px);margin:12px 0 8px;color:var(--ink)}
+.rd .meta{color:var(--mute);margin-bottom:28px}
+.rd p{font-size:17px;margin:0 0 18px}
+.hl{border-radius:16px;padding:18px 22px;background:var(--bg2);border-left:4px solid var(--green);margin:28px 0}
+.hl h3{font-size:19px;margin-bottom:8px;color:#0c7a35}
+.hl ul{margin:0;padding-left:20px}
+.hl li{margin:6px 0}
+details{border:1px solid var(--line);border-radius:16px;padding:4px 20px}
+summary{cursor:pointer;padding:12px 0;font-weight:700;min-height:44px;color:var(--blue)}
+.log{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:10px 18px;padding:6px 0 16px;font-size:15px}
+.log b{color:var(--blue);font-weight:700;white-space:nowrap}
+.log div{white-space:pre-line}
+.rd-nav{display:flex;justify-content:space-between;gap:12px;margin-top:32px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.strip{grid-template-columns:repeat(9,minmax(0,1fr))}.strip .cell{height:48px}}
+@media(max-width:760px){.htext .wrap{grid-template-columns:minmax(0,1fr)}.feat{grid-template-columns:minmax(0,1fr)}.feat .art{min-height:200px}}
+@media(max-width:600px){.grid,.skills,.how{grid-template-columns:minmax(0,1fr)}nav ul{font-size:14px;gap:2px 14px}.ring{width:124px;height:124px}.ring b{font-size:36px}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="#top"><i></i><span>Internship Journey at <b>Hartalega</b></span></a>
+  <ul>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#chapters">Chapters</a></li>
+    <li><a href="#skills">Skills</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <div class="htext">
+    <div class="wrap">
+      <div>
+        <span class="pill">Internship · Sep 2026 to Mar 2027</span>
+        <h1>Internship Journey at <strong>Hartalega</strong></h1>
+        <div class="by"><span class="av" aria-hidden="true">AH</span><div><strong>Amir Hazim bin Zainol</strong><span>Statistical Process Control Intern, Quality Assurance Department</span></div></div>
+      </div>
+      <div>
+        <p>Six months in Quality Assurance at Hartalega, told one week at a time. The first project studies the GTM glove tester, and more projects come in the second half. Every chapter is written from my daily logbook.</p>
+        <div class="btns"><a class="btn" id="latestBtn" href="#week-10">Read the latest chapter →</a><a class="btn ghost" href="#chapters">All chapters</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <canvas id="dots" aria-hidden="true"></canvas>
+    <div class="ring" role="img" id="ringBox" aria-label="Week 10 of 27">
+      <svg viewBox="0 0 150 150" aria-hidden="true"><circle cx="75" cy="75" r="70" fill="none" stroke="#ffffff40" stroke-width="4"/><circle id="ringArc" cx="75" cy="75" r="70" fill="none" stroke="#13a84a" stroke-width="5" stroke-linecap="round" stroke-dasharray="439.8" stroke-dashoffset="277"/></svg>
+      <div><b id="ringNum">10</b><small id="ringOf">of 27 weeks</small></div>
+    </div>
+  </div>
+</header>
+
+<section class="band statsband">
+  <div class="wrap">
+    <div class="stats" id="stats"></div>
+    <div class="note">Glove count adds up the GTM runs with a quantity in the log (300, 160 and 120 pcs).</div>
+  </div>
+</section>
+
+<section class="band" id="journey">
+  <div class="wrap">
+    <div class="sec-h"><h2>27 weeks on the bench</h2><p>Each block is one week. Tap a blue one to read it.</p></div>
+    <div class="strip" id="strip"></div>
+    <div class="legend"><span><i style="background:var(--blue)"></i>Written</span><span><i style="background:var(--green)"></i>This week</span><span><i style="background:#fff;border:1px solid var(--line)"></i>Still ahead</span><span><i style="background:var(--green);border-radius:50%"></i>Milestone: Drip presentation (week 23), last day 22 Mar (week 27)</span></div>
+  </div>
+</section>
+
+<section class="band" id="chapters">
+  <div class="wrap">
+    <div class="sec-h"><h2>The weekly chapters</h2><p>Short stories written from each week's log, with the raw entries kept underneath.</p></div>
+    <div id="feat"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="band" id="skills" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="sec-h"><h2>What I'm picking up</h2><p>The four kinds of work that keep coming back in the log.</p></div>
+    <div class="skills">
+      <div class="skill"><svg viewBox="0 0 44 44" fill="none" stroke="#13a84a" stroke-width="2"><rect x="4" y="10" width="36" height="26" rx="5"/><path d="M10 28l7-8 6 5 8-10 4 4"/></svg><h3>Machine testing</h3><p>Pressure-drop (dP) runs on Qmax and GTM machines across inflation times, auto and static tests.</p></div>
+      <div class="skill"><svg viewBox="0 0 44 44" fill="none" stroke="#13a84a" stroke-width="2"><path d="M6 38h32M10 32V20M18 32V12M26 32V24M34 32V8"/></svg><h3>Data and dashboards</h3><p>Extracting data by line and by tier, 1-proportion tests, defect percentages and control limits in DMS.</p></div>
+      <div class="skill"><svg viewBox="0 0 44 44" fill="none" stroke="#13a84a" stroke-width="2"><circle cx="19" cy="19" r="11"/><path d="M27 27l11 11"/><circle cx="19" cy="19" r="2" fill="#13a84a"/></svg><h3>Pinhole making</h3><p>Burned, medical and sewing needles to copy real micropinholes, checked under a Dino-Lite microscope.</p></div>
+      <div class="skill"><svg viewBox="0 0 44 44" fill="none" stroke="#13a84a" stroke-width="2"><path d="M8 6h20l8 8v24H8z"/><path d="M14 24l5 5 10-11"/></svg><h3>Validation</h3><p>Writing test protocols and helping the QA validation team through IQ and OQ for the GTM machine.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="band">
+  <div class="wrap"><span>Internship Journey at Hartalega · Amir Hazim bin Zainol, Statistical Process Control Intern, Quality Assurance Department · 21 Sep 2026 to 22 Mar 2027</span><a href="#top">Back to top ↑</a></div>
+</footer>
+
+<div id="reader" role="dialog" aria-modal="true" aria-labelledby="rdTitle"><div class="rd" id="rd"></div></div>
+
+<script>
+{
+const TOTAL=27;
+const weeks=[
+{n:1,range:"21 to 25 Sep",title:"First pressure",tags:["Onboarding","Chlorine ppm","Qmax dP"],
+story:["Monday was HR onboarding: badges, forms, and the first look at a place that makes gloves by the million. By Tuesday I was already standing beside a new method being trialled to improve the accuracy of chlorine ppm testing, mostly watching and asking questions.",
+"Wednesday taught me the unglamorous first rule of data work: check it before you trust it. I went through data filled in by the technicians so it could be used in the analysis.",
+"Thursday and Friday were my first real runs on the Qmax machine. I collected pressure-drop (dP) readings at a 2.0 inflation time, in auto and static tests, on both good gloves and needle-punctured ones, then repeated the static test at 1.5. By Friday afternoon I had extracted the data. Good glove, needle glove, compare the curves: that pairing turned out to be the backbone of everything after."],
+highlights:["Observed the new chlorine ppm accuracy method","Verified technician data before analysis","First Qmax dP runs at 2.0 and 1.5 inflation time"],
+log:[["Mon","Onboarding session with HR"],["Tue","Observed new method of chlorine ppm testing accuracy improvement study"],["Wed","Verified data filled by the technician for use in data analysis"],["Thu","Collected dP data using Qmax for 2.0 IT (auto and static test: good and needle) and 1.5 IT (static test: good and needle)"],["Fri","Continued the same dP collection and extracted the data"]]},
+{n:2,range:"28 Sep to 2 Oct",title:"Seeing the machine",tags:["Qmax","Glove blow visuals","Database"],
+story:["This week I started looking at the machine as well as its numbers. On Monday I photographed Qmax components to spot hardware issues, ran dP tests at 0.8 (static) and 0.5 (auto) inflation time, and captured how a glove blows up at 0.8, 1.5, 2.0, 2.5 and 3.0 seconds of inflation.",
+"Tuesday to Thursday were steady: three days of uploading new data sets to the database. Not exciting, but it meant every run so far now sat in one place.",
+"Friday zoomed out. I sat in on a meeting with the COO where Prof Fauzi from APU presented the latest update on the Qmax GTM machine. Seeing my small dP runs in the context of a company-level project made the week click."],
+highlights:["Visual check of Qmax components for hardware issues","Glove blow visuals at five inflation times","Joined the COO update meeting on the GTM machine"],
+log:[["Mon","Took visuals of Qmax components to detect hardware issues\nCollected dP data for 0.8 IT (static: good and needle) and 0.5 IT (auto: good and needle)\nTook glove blow visuals for 0.8, 1.5, 2.0, 2.5 and 3.0 inflation time"],["Tue","Uploaded a new data set to the database"],["Wed","Uploaded a new data set to the database"],["Thu","Uploaded a new data set to the database"],["Fri","Attended meeting with COO on the latest Qmax GTM machine update, presented by Prof Fauzi from APU"]]},
+{n:3,range:"5 to 9 Oct",title:"A second welcome",tags:["Onboarding","New plant","Data extraction"],
+story:["Two more days of onboarding, this time meeting HR and the departments I would be working alongside. It helped to put faces to the names already appearing in my data.",
+"On Wednesday the chlorine ppm method I had watched in week one moved to a new production plant, and I joined the training for putting it into practice there.",
+"Thursday brought the newest Qmax machine, and I collected data on it hoping for better accuracy. Friday was about scale: pulling the related data from the database for every production line."],
+highlights:["Onboarding with related departments","Training on the chlorine ppm method at a new plant","Data from the newest Qmax and all production lines"],
+log:[["Mon","Onboarding session with HR and related departments"],["Tue","Onboarding session with HR and related departments"],["Wed","Training on implementing the new chlorine ppm testing method at the new production plant"],["Thu","Collected data on the newest Qmax machine for better accuracy"],["Fri","Extracted related data from the database for all production lines"]]},
+{n:4,range:"12 to 16 Oct",title:"Burning needles",tags:["Dashboards","Burned-needle pinholes","AI Vision","Firmware"],
+story:["The week opened with my first dashboard, built from Qmax data, plus a 1-proportion test on defect data, which turned a pile of numbers into an actual question with an answer.",
+"Then came the experiment I keep coming back to. Real production micropinholes are tiny and irregular, so I tried making them with a burned needle. I photographed them under a Dino-Lite and built slides comparing three kinds of hole: a real one from production, one from a normal needle, and one from a burned needle. Alongside that I kept extracting AI Vision defect data by tier, calculated defect percentages, and updated a new control limit in DMS.",
+"On Friday I helped Prof Fauzi with a firmware improvement on the GTM machine at Plant 7, then ran gloves at five inflation times to compare good gloves with burned-needle ones."],
+highlights:["First Qmax dashboard and 1-proportion defect test","Burned-needle micropinholes compared under Dino-Lite","Helped with GTM firmware improvement at Plant 7"],
+log:[["Mon","Built dashboard for Qmax data\nUploaded data to database\nAnalysed defect data using 1-proportion test and built a dashboard"],["Tue","Tested fabricating production-like micropinholes with a burned needle\nTook Dino-Lite visuals of micropinholes\nPrepared slides comparing actual, normal needle and burned needle pinholes\nContinued extracting AI Vision data by tier"],["Wed","Same as Tuesday: burned-needle pinholes, Dino-Lite visuals, comparison slides, AI Vision extraction"],["Thu","Updated and calculated defect percentage for AI Vision by tier\nUpdated new control limit in DMS\nPrepared gloves for burned-needle pinhole testing"],["Fri","Helped Prof Fauzi with firmware improvement on GTM machine, Plant 7\nCollected GTM data at 5 inflation times comparing good and burned-needle pinhole gloves"]]},
+{n:5,range:"19 to 23 Oct",title:"Three hundred gloves",tags:["GTM runs","Meetings","Inner pressure"],
+story:["The five-inflation-time runs carried on into Monday, along with more AI Vision extraction. Tuesday was a meetings day: online with Prof Fauzi on the GTM study's progress, then with the project team about putting the study into practice.",
+"Midweek I prepared a test set of 50 burned-pinhole gloves and 100 good ones. On Thursday I met Prof Fauzi in person and started collecting data with the machine on its current settings.",
+"Friday was the week's peak: 300 gloves through the GTM machine on the current setting, plus inner pressure readings from the GTM machines at Plants 5 and 6."],
+highlights:["300 gloves run on the current GTM setting","Prepared 50 burned-pinhole and 100 good gloves","Inner pressure readings at Plants 5 and 6"],
+log:[["Mon","Continued GTM runs at 5 inflation times\nContinued AI Vision data extraction by tier"],["Tue","Online meeting with Prof Fauzi on GTM study progress\nMeeting with project team on GTM study implementation\nContinued AI Vision defect percentage calculation"],["Wed","Prepared 50 burned-pinhole and 100 good-needle gloves for testing\nContinued AI Vision defect percentage calculation"],["Thu","Face-to-face meeting with Prof Fauzi on GTM study progress\nPrepared test gloves\nCollected GTM data with current settings"],["Fri","Collected data on 300 gloves at the current GTM setting\nCollected inner pressure readings on GTM machines at Plants 5 and 6"]]},
+{n:6,range:"26 to 30 Oct",title:"Plan 2 takes shape",tags:["Spec limits","Air pump test","Plan 2","Machine trouble"],
+story:["Monday was a thinking day. I read up on new ways to set spec limits, started learning data structures and machine learning, and documented samples from earlier data collection.",
+"Then I went after real defects. I planned the next test protocol, confirmed pinholes with an air pump and an air trap test, ran static tests on FT and C needle gloves (five of each), and watched a GTM run pull pinhole gloves out of a problematic batch. On Thursday I air-pumped the rejects from that batch and collected 600 pieces of 3.2M gloves from Plant 5 for the next procedure, now called Plan 2.",
+"Friday had a new Dino-Lite installed on my PC, and a reminder that hardware has its own plans: the static test on the newly found pinhole gloves failed because the machine broke down."],
+highlights:["Air pump and air trap checks on a problematic batch","600 gloves collected from Plant 5 for Plan 2","Static test stopped by a machine failure"],
+log:[["Mon","Researched new approach for setting spec limits\nExplored data structures and machine learning\nDocumented samples from previous data collection"],["Tue","Planned protocol for next testing\nVerified glove pinholes using air pump and air trap test"],["Wed","Internship outline briefing with HR\nDino-Lite visuals on pinhole gloves\nStatic run for needle FT (5 pcs) and C (5 pcs)\nMonitored GTM run extracting pinhole gloves from problematic batch"],["Thu","Air-pumped rejects from the problematic batch\nPrepared gloves with pinholes found by air pump\nCollected 600 pcs 3.2M from Plant 5 for Plan 2"],["Fri","Got a new Dino-Lite installed by MIS\nPrepared Plan 2 gloves\nStatic test on new pinhole gloves (failed due to machine failure)"]]},
+{n:7,range:"2 to 6 Nov",title:"Running Plan 2",tags:["Plan 2","Protocol","SharePoint"],
+story:["Plan 2 became the whole week. Every day started with preparing more Plan 2 gloves, and on Monday I also photographed pinholes from real defect gloves to keep the target in sight.",
+"By Wednesday the GTM run protocol for Plan 2 was final, and I started the runs with the gloves punctured by needles larger than 0.3 mm, using the static test. Thursday continued the same runs.",
+"Friday was about leaving a trail: every GTM testing file went into SharePoint for future reference, and I measured Plan 2 pinholes under the Dino-Lite to pin down their exact size."],
+highlights:["Plan 2 GTM protocol finalised","Static runs on >0.3 mm needle gloves","All GTM files organised in SharePoint"],
+log:[["Mon","Prepared Plan 2 gloves\nVisuals of pinholes on actual defect gloves"],["Tue","Prepared Plan 2 gloves\nFinalised Plan 2 GTM run protocol"],["Wed","Prepared Plan 2 gloves\nFinalised Plan 2 protocol\nStarted Plan 2 run with >0.3 mm needle gloves using static test"],["Thu","Continued Plan 2 run with >0.3 mm needle gloves"],["Fri","Uploaded all GTM testing files to SharePoint\nDino-Lite visuals of Plan 2 gloves to assess exact pinhole size"]]},
+{n:8,range:"9 to 13 Nov",title:"Version 2",tags:["Deepavali","Coordination","Software v2"],
+story:["The week began with a Deepavali replacement leave. Back on Tuesday, I scoped the micropinholes on the Plan 2 gloves, met the project team on progress and next steps, and started running 160 more Plan 2 good gloves on the GTM.",
+"Wednesday was mostly coordination. I helped move cards from the Plant 2 machine to Plant 7, let OQC at Plant 7 know the GTM would be unavailable until validation was done, and worked with IT to pull the data for the extra 160 gloves. We also sized the next trial: 600 gloves per needle location, 3,000 needle gloves focused on holes under 0.3 mm, and a total of between 3,600 and 6,000 gloves, pending the professor's confirmation.",
+"Thursday I picked up gloves from OQC and drafted the trial test protocol. On Friday we met the QA validation team and Prof Fauzi to check the GTM machine with software version 2, then flashed out the old software and installed the new one."],
+highlights:["160 extra good gloves run and extracted","Trial sized at 3,600 to 6,000 gloves","GTM moved to software version 2"],
+log:[["Mon","Deepavali (replacement leave)"],["Tue","Scoped micropinholes on Plan 2 gloves\nMeeting with project team on progress and planning\nRan 160 additional Plan 2 good gloves on GTM"],["Wed","Continued the 160-glove run\nMoved cards from Plant 2 to Plant 7 with the plant team\nInformed OQC Plant 7 that GTM is unavailable until validation is done\nExtracted data for the 160 gloves with IT\nPlanned glove preparation: 600 pcs per needle location, 3,000 needle gloves (<0.3 mm focus), total 3,600 to 6,000 pending confirmation"],["Thu","Picked up gloves from OQC\nPrepared gloves for trial test\nDrafted trial test GTM run protocol"],["Fri","Meeting with QA Validation team and Prof Fauzi to validate GTM with software version 2\nFlashed old software and installed version 2"]]},
+{n:9,range:"16 to 20 Nov",title:"Stability check",tags:["Software v2","New needle","Stations 1 and 17"],
+story:["New software needs proof. On Monday I ran 120 gloves through the GTM on version 2 to check it was stable, and made sure every GTM file was in SharePoint.",
+"On Tuesday I tested a newly proposed needle for making pinholes. For the rest of the week, glove preparation and finishing the trial test protocol ran in the background every day.",
+"On Wednesday two stations, 1 and 17, looked suspicious, so I ran good gloves through them to check, and on Thursday I extracted that verification data."],
+highlights:["120 gloves run to check v2 stability","Tested a new proposed pinhole needle","Verification runs on stations 1 and 17"],
+log:[["Mon","Ran 120 gloves on GTM with version 2 software to verify stability\nMade sure all GTM files are in SharePoint"],["Tue","Tested a newly proposed needle to make pinholes\nPrepared gloves for trial test\nFinalised trial test protocol"],["Wed","Prepared gloves and protocol\nRan good gloves at stations 1 and 17 to verify issues"],["Thu","Extracted verification test data for stations 1 and 17\nPrepared gloves and protocol"],["Fri","Prepared gloves for trial test\nFinalised trial test protocol"]]},
+{n:10,range:"23 to 27 Nov",title:"Into validation",tags:["IQ / OQ","Sewing needle","Hardware fixes"],live:true,
+story:["The week started with the machine itself: I checked its connection issues, found the problematic cup and labelled it, and talked through the progress and issues with the validation team.",
+"On Tuesday I went over the overall progress and next steps with Prof Fauzi, then tested whether a sewing needle makes the same pinhole as a medical needle. I worked with the CNI team on fixing the faulty component, helped set up the GTM for validation, and helped the validation team complete Installation Qualification (IQ).",
+"Wednesday moved on to Operational Qualification (OQ). I helped the validation team bring artificial pinhole gloves into OQ testing and joined their discussion on preparing the gloves. I also met IT and Prof Fauzi about installing a LAN network at GTM 1, Plant 7, and extracted more verification data. Thursday's entry isn't written yet and Friday is annual leave, so this chapter will get a little longer."],
+highlights:["Helped complete Installation Qualification (IQ)","Artificial pinhole gloves brought into OQ testing","Sewing needle vs medical needle pinhole test"],
+log:[["Mon","Verified connection issues on GTM\nIdentified and labelled the problematic cup\nDiscussed progress and issues with the validation team"],["Tue","Discussed overall progress and planning with Prof Fauzi\nTested sewing-needle pinholes against medical needle\nWorked with CNI team to fix the component with hardware issues\nAssisted GTM set-up for validation\nAssisted validation team to complete IQ"],["Wed","Helped introduce artificial pinhole gloves and glove preparation into OQ testing\nMeeting with IT and Prof Fauzi on LAN installation at GTM 1 Plant 7\nExtracted verification test data\nJoined validation team discussion on OQ glove preparation"],["Thu","Not logged yet"],["Fri","Annual leave"]]}
+];
+const CURRENT=weeks[weeks.length-1].n;
+document.getElementById('latestBtn').href='#week-'+CURRENT;
+document.getElementById('ringNum').textContent=CURRENT;
+document.getElementById('ringOf').textContent='of '+TOTAL+' weeks';
+document.getElementById('ringBox').setAttribute('aria-label','Week '+CURRENT+' of '+TOTAL);
+document.getElementById('ringArc').setAttribute('stroke-dashoffset',(439.8*(1-CURRENT/TOTAL)).toFixed(1));
+const cv=document.getElementById('dots'),cx=cv.getContext('2d');
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let W=0,H=0,t=0,raf=0,vis=true;
+function size(){const d=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);paint()}
+function paint(){
+  cx.clearRect(0,0,W,H);
+  const cols=Math.max(24,Math.round(W/26)),rows=18,mid=W/2;
+  for(let r=rows;r>=0;r--){
+    const z=1+r*.42;
+    for(let c=0;c<=cols;c++){
+      const u=(c/cols-.5)*2;
+      const wave=Math.sin(u*5+t+r*.5)*Math.cos(r*.45-t*.7)*14/z;
+      const x=mid+u*W*.95/z*1.25;
+      if(x<-10||x>W+10)continue;
+      const y=H*.14+H*.8/z-(u*u)*H*.3/z+wave;
+      const rad=Math.max(.6,4.2/z);
+      cx.globalAlpha=Math.max(.08,.62-r*.034);
+      cx.beginPath();cx.arc(x,y,rad,0,6.283);cx.fillStyle='#fff';cx.fill();
+    }
+  }
+  cx.globalAlpha=1;
+}
+function loop(){t+=.012;paint();raf=vis?requestAnimationFrame(loop):0}
+const dotRO=new ResizeObserver(size);dotRO.observe(cv);
+if(!still){const dotIO=new IntersectionObserver(e=>{vis=e[0].isIntersecting;if(vis&&!raf)raf=requestAnimationFrame(loop)});dotIO.observe(cv)}
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const skip=/^(Annual leave|Deepavali|Not logged)/;
+const days=weeks.reduce((a,w)=>a+w.log.filter(l=>!skip.test(l[1])).length,0);
+const st=[["Week",CURRENT+'<em> / '+TOTAL+'</em>'],["Days logged",days],["Gloves run on GTM","580+"],["Weeks to go",TOTAL-CURRENT]];
+document.getElementById('stats').innerHTML=st.map(s=>`<div class="stat"><span>${s[0]}</span><strong>${s[1]}</strong></div>`).join('');
+const miles={23:"Drip presentation, 23 Feb",27:"Last day, 22 Mar"};
+let cells='';
+for(let i=1;i<=TOTAL;i++){
+  const w=weeks.find(x=>x.n===i);
+  const cls='cell'+(w?' done':'')+(i===CURRENT?' now':'')+(miles[i]?' mile':'');
+  const lab=w?`Week ${i}: ${w.title}`:(miles[i]?`Week ${i}: ${miles[i]}`:`Week ${i}`);
+  cells+=w?`<a class="${cls}" href="#week-${i}" title="${esc(lab)}" aria-label="${esc(lab)}">${i}</a>`:`<div class="${cls}" title="${esc(lab)}">${i}</div>`;
+}
+document.getElementById('strip').innerHTML=cells;
+const latest=weeks[weeks.length-1];
+document.getElementById('feat').innerHTML=`<div class="feat"><div class="art"><svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${Array.from({length:90},(_,k)=>{const c=k%15,r=Math.floor(k/15);const z=1+r*.45;return `<circle cx="${200+(c-7)*44/z}" cy="${150+60/z}" r="${5/z}" fill="#fff" opacity="${(.75-r*.1).toFixed(2)}"/>`}).join('')}<text x="200" y="104" text-anchor="middle" fill="#fff" font-family="Open Sans,sans-serif" font-weight="700" font-size="34">Week ${latest.n}</text></svg></div><div class="txt"><span class="pill">${latest.live?'In progress':'Latest'} · ${esc(latest.range)}</span><h3>${esc(latest.title)}</h3><p>${esc(latest.story[0])}</p><div class="btns"><a class="btn" href="#week-${latest.n}">Read week ${latest.n} →</a></div></div></div>`;
+const rev=weeks.slice(0,-1);
+const soon=[1,2,3].map(k=>CURRENT+k).filter(n=>n<=TOTAL).map(n=>`<div class="card soon"><div class="wk"><b>Week ${n}</b></div><h3>Not written yet</h3><p>This chapter appears once the week is logged.</p></div>`);
+document.getElementById('grid').innerHTML=rev.map(w=>`<a class="card" href="#week-${w.n}"><div class="wk"><b>Week ${w.n}</b><span>${esc(w.range)}</span></div><h3>${esc(w.title)}</h3><p>${esc(w.story[0])}</p><div class="tags">${w.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div></a>`).join('')+soon.join('');
+const R=document.getElementById('reader'),rd=document.getElementById('rd');
+let back=null;
+function show(){
+  const m=/^#week-(\d+)$/.exec(location.hash);
+  const w=m&&weeks.find(x=>x.n===+m[1]);
+  if(!w){R.classList.remove('on');document.body.style.overflow='';return}
+  const i=weeks.indexOf(w),p=weeks[i-1],n=weeks[i+1];
+  rd.innerHTML=`<div class="rd-top"><a class="btn ghost" href="#chapters" id="closeBtn">← All chapters</a><span class="pill">Week ${w.n} of ${TOTAL}${w.live?' · in progress':''}</span></div>
+  <h2 id="rdTitle">${esc(w.title)}</h2><div class="meta">By Amir Hazim bin Zainol · ${esc(w.range)} 2026 ·${w.tags.map(esc).join(', ')}</div>
+  ${w.story.map(s=>`<p>${esc(s)}</p>`).join('')}
+  <div class="hl"><h3>Highlights</h3><ul>${w.highlights.map(h=>`<li>${esc(h)}</li>`).join('')}</ul></div>
+  <details><summary>Raw logbook entries</summary><div class="log">${w.log.map(l=>`<b>${esc(l[0])}</b><div>${esc(l[1])}</div>`).join('')}</div></details>
+  <div class="rd-nav">${p?`<a class="btn ghost" href="#week-${p.n}">← Week ${p.n}: ${esc(p.title)}</a>`:'<span></span>'}${n?`<a class="btn" href="#week-${n.n}">Week ${n.n}: ${esc(n.title)} →</a>`:''}</div>`;
+  R.classList.add('on');R.scrollTop=0;document.body.style.overflow='hidden';
+  document.getElementById('closeBtn').focus({preventScroll:true});
+}
+window.addEventListener('hashchange',show);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&R.classList.contains('on'))location.hash='chapters'});
+show();
+}
+</script>
+</body>
+</html>
